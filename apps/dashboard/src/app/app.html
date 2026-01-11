@@ -1,19 +1,22 @@
 <!-- <ul class="remote-menu">
   <li><a routerLink="/">Home</a></li>
+<li><a routerLink="todo_list">TodoList</a></li>
 </ul>
 <router-outlet></router-outlet> -->
 
 <!-- Full page wrapper -->
 <div class="app-wrapper d-flex flex-column min-vh-100">
-
   <!-- Top Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
     <div class="container-fluid">
-      <a class="navbar-brand fw-semibold" routerLink="/">
-        📝 ToDo App
-      </a>
+      <a class="navbar-brand fw-semibold" routerLink="/"> 📝 ToDo App </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -25,12 +28,20 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/completed" routerLinkActive="active">
+            <a
+              class="nav-link"
+              routerLink="/completed"
+              routerLinkActive="active"
+            >
               Completed
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/settings" routerLinkActive="active">
+            <a
+              class="nav-link"
+              routerLink="/settings"
+              routerLinkActive="active"
+            >
               Settings
             </a>
           </li>
@@ -47,8 +58,5 @@
   </main>
 
   <!-- Footer (optional but clean) -->
-  <footer class="text-center text-muted small py-2">
-    © 2026 ToDo App
-  </footer>
-
+  <footer class="text-center text-muted small py-2">© 2026 ToDo App</footer>
 </div>
