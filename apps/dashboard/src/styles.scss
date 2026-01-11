@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+/* App background */
+body {
+    background: linear-gradient(135deg, #6cd3e3, #e4e8ee);
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* Main content card feel */
+.content-wrapper {
+    background-color: transparent;
+}
+
+/* Router content container */
+.container {
+    max-width: 960px;
+}
+
+/* Navbar active state */
+.nav-link.active {
+    font-weight: 600;
+    border-bottom: 2px solid #fff;
+}
+
+.nav-link {
+    color: #fff !important;
+}

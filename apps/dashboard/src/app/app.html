@@ -1,4 +1,54 @@
-<ul class="remote-menu">
+<!-- <ul class="remote-menu">
   <li><a routerLink="/">Home</a></li>
 </ul>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+
+<!-- Full page wrapper -->
+<div class="app-wrapper d-flex flex-column min-vh-100">
+
+  <!-- Top Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-semibold" routerLink="/">
+        📝 ToDo App
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/tasks" routerLinkActive="active">
+              Tasks
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/completed" routerLinkActive="active">
+              Completed
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/settings" routerLinkActive="active">
+              Settings
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-grow-1 content-wrapper">
+    <div class="container py-4">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <!-- Footer (optional but clean) -->
+  <footer class="text-center text-muted small py-2">
+    © 2026 ToDo App
+  </footer>
+
+</div>
