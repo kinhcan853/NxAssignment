@@ -8,7 +8,9 @@
   "targets": {
     "build": {
       "executor": "@nx/angular:webpack-browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/todo_list",
         "index": "apps/todo_list/src/index.html",
@@ -21,7 +23,10 @@
             "input": "apps/todo_list/public"
           }
         ],
-        "styles": ["apps/todo_list/src/styles.scss"],
+        "styles": [
+          "apps/todo_list/src/styles.scss",
+          "node_modules/bootstrap/scss/bootstrap.scss"
+        ],
         "customWebpackConfig": {
           "path": "apps/todo_list/webpack.config.ts"
         }
@@ -72,7 +77,9 @@
         }
       },
       "defaultConfiguration": "development",
-      "dependsOn": ["dashboard:serve"]
+      "dependsOn": [
+        "dashboard:serve"
+      ]
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -85,7 +92,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/todo_list/jest.config.cts",
         "tsConfig": "apps/todo_list/tsconfig.spec.json"

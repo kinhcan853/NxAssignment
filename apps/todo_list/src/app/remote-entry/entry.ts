@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { NxWelcome } from './nx-welcome';
+import { ToDoList } from '../../components/todolist';
 
 @Component({
-  imports: [NxWelcome],
+  imports: [ToDoList],
   selector: 'app-todo_list-entry',
-  template: `<app-nx-welcome></app-nx-welcome>`,
+  template: `<app-to-do-list></app-to-do-list>`,
 })
-export class RemoteEntry {}
+export class RemoteEntry { }

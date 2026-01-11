@@ -1,0 +1,52 @@
+<div class="container py-3">
+
+    <!-- Command Bar -->
+    <div class="mb-3">
+
+        <!-- Add Item Button -->
+        <div class="d-grid mb-2">
+            <button type="button" class="btn btn-primary btn-lg" (click)="addItem()">
+                Add Item
+            </button>
+        </div>
+
+        <!-- Action Buttons Row -->
+        <div class="row g-2">
+            <div class="col-3">
+                <button type="button" class="btn btn-outline-secondary w-100" (click)="selectAll()">
+                    Select All
+                </button>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-outline-success w-100" (click)="markDone()">
+                    Done
+                </button>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-outline-warning w-100" (click)="markUndone()">
+                    Undone
+                </button>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-outline-danger w-100" (click)="removeSelected()">
+                    Remove
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Todo List -->
+    <div class="todo-list-container">
+        <div class="card todo-item mb-3" *ngFor="let todo of todos">
+            <div class="card-body">
+                <div class="todo-title fw-bold">
+                    {{ todo.title }}
+                </div>
+                <div class="todo-description">
+                    {{ todo.description }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
