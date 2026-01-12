@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ToDoItem } from '../../services/to-do-item';
 import { Observable } from 'rxjs/internal/Observable';
 import { ToDoService } from '../../services/to-do-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-to-do-list',
@@ -14,14 +15,9 @@ export class ToDoList {
 
   todos$: Observable<ToDoItem[]>;
 
-  /** For new todo form */
-  newTitle = '';
-  newDescription = '';
-  
-  /**
-   *
-   */
-  constructor(private todoService: ToDoService) {
+  constructor(
+    private todoService: ToDoService,
+    private router: Router){
       this.todos$ = this.todoService.getTodos();
   }
 
@@ -35,15 +31,6 @@ export class ToDoList {
   }
 
   addItem() {
-    if (!this.newTitle.trim()) return;
-
-    this.todoService.addTodo({
-      title: this.newTitle,
-      description: this.newDescription,
-      isDone: false
-    });
-
-    this.newTitle = '';
-    this.newDescription = '';
+    this.router.navigate(['create']);
   }
 }
