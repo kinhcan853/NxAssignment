@@ -11,6 +11,21 @@
     background-color: rgba(var(--bs-primary-rgb), 1);
     padding: 1rem;
     line-height: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+
+    &:hover {
+        background-color: #e9ecef;
+        .todo-title,
+        .todo-description {
+            color: #6c757d;
+        }
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
 }
 
 .todo-title {
@@ -23,4 +38,24 @@
     color: white;
     font-size: 0.9rem;
     margin-top: 4px;
+}
+
+/* Done state */
+.todo-done {
+  background-color: #e9ecef;
+
+  .todo-title,
+  .todo-description {
+    text-decoration: line-through;
+    color: #6c757d;
+  }
+}
+
+/* Remove button */
+.remove-btn {
+  font-size: 1.2rem;
+
+  &:hover {
+    color: #dc3545;
+  }
 }

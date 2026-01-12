@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ToDoItem } from '../services/to-do-item';
+import { Observable } from 'rxjs/internal/Observable';
+import { ToDoService } from '../services/to-do-service';
 
 @Component({
   selector: 'app-to-do-list',
@@ -8,42 +11,39 @@ import { Component } from '@angular/core';
   styleUrl: './todolist.scss',
 })
 export class ToDoList {
-  todos = [
-    {
-      title: 'Design login screen',
-      description: 'Create responsive layout using Bootstrap grid'
-    },
-    {
-      title: 'Fix validation bug',
-      description: 'Email field does not validate correctly'
-    },
-    {
-      title: 'Prepare UI review',
-      description: 'Gather feedback from product team'
-    },
-    {
-      title: 'Refactor components',
-      description: 'Simplify reusable UI components'
-    }
-  ];
 
-  selectAll() {
-    // Implementation for selecting all items
+  todos$: Observable<ToDoItem[]>;
+
+  /** For new todo form */
+  newTitle = '';
+  newDescription = '';
+  
+  /**
+   *
+   */
+  constructor(private todoService: ToDoService) {
+      this.todos$ = this.todoService.getTodos();
   }
 
-  markDone() {
-    // Implementation for marking selected items as done
-  }
-
-  markUndone() {
+  toggleTodoStatus(id: number) {
     // Implementation for marking selected items as undone
+    this.todoService.toggleTodoStatus(id);
   }
 
-  removeSelected() {
-    // Implementation for removing selected items
+  removeItem(id: number): void {
+    this.todoService.removeTodo(id);
   }
 
   addItem() {
-    // Implementation for adding a new item
+    if (!this.newTitle.trim()) return;
+
+    this.todoService.addTodo({
+      title: this.newTitle,
+      description: this.newDescription,
+      isDone: false
+    });
+
+    this.newTitle = '';
+    this.newDescription = '';
   }
 }

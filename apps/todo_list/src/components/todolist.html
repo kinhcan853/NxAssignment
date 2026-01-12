@@ -10,43 +10,33 @@
             </button>
         </div>
 
-        <!-- Action Buttons Row -->
-        <div class="row g-2">
-            <div class="col-3">
-                <button type="button" class="btn btn-outline-secondary w-100" (click)="selectAll()">
-                    Select All
-                </button>
-            </div>
-            <div class="col-3">
-                <button type="button" class="btn btn-outline-success w-100" (click)="markDone()">
-                    Done
-                </button>
-            </div>
-            <div class="col-3">
-                <button type="button" class="btn btn-outline-warning w-100" (click)="markUndone()">
-                    Undone
-                </button>
-            </div>
-            <div class="col-3">
-                <button type="button" class="btn btn-outline-danger w-100" (click)="removeSelected()">
-                    Remove
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- Todo List -->
     <div class="todo-list-container">
-        <div class="card todo-item mb-3" *ngFor="let todo of todos">
-            <div class="card-body">
-                <div class="todo-title fw-bold">
-                    {{ todo.title }}
-                </div>
-                <div class="todo-description">
-                    {{ todo.description }}
-                </div>
-            </div>
+    <div
+        class="card todo-item mb-3 d-flex flex-row align-items-center"
+        *ngFor="let todo of todos$ | async"
+        tabindex="0"
+        [class.todo-done]="todo.isDone"
+        (click)="toggleTodoStatus(todo.id)"
+    >
+        <div class="card-body flex-grow-1">
+        <div class="todo-title fw-bold">
+            {{ todo.title }}
         </div>
+        <div class="todo-description">
+            {{ todo.description }}
+        </div>
+        </div>
+
+        <!-- Remove icon -->
+        <button
+        class="btn btn-link text-danger me-3 remove-btn"
+        (click)="removeItem(todo.id); $event.stopPropagation()"
+        aria-label="Remove todo"
+        >
+        <i class="bi bi-trash"></i>
+        </button>
+    </div>
     </div>
 
 </div>
