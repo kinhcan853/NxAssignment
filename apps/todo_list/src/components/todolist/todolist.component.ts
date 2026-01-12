@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ToDoItem } from '../../../../../shared-libs/src/lib/todo_service/to-do-item';
 import { Observable } from 'rxjs/internal/Observable';
-import { ToDoService } from '../../../../../shared-libs/src/lib/todo_service/todo_service';
+import { ToDoService, ToDoItem } from '@shared_libs/todo_service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,8 +16,8 @@ export class ToDoList {
 
   constructor(
     private todoService: ToDoService,
-    private router: Router){
-      this.todos$ = this.todoService.getTodos();
+    private router: Router) {
+    this.todos$ = this.todoService.getTodos();
   }
 
   toggleTodoStatus(id: number) {

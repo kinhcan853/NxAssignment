@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToDoService } from '@org/todo_service';
+import { ToDoService } from '@shared_libs/todo_service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -16,7 +16,7 @@ export class ToDoCreation {
 
   constructor(
     private router: Router,
-    private todoService: ToDoService){
+    private todoService: ToDoService) {
   }
 
   addToDo(form: NgForm): void {

@@ -10,7 +10,10 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -18,12 +21,19 @@
       "todo_list/Routes": [
         "apps/todo_list/src/app/remote-entry/entry.routes.ts"
       ],
-      "about/Routes": ["apps/about/src/app/remote-entry/entry.routes.ts"],
+      "about/Routes": [
+        "apps/about/src/app/remote-entry/entry.routes.ts"
+      ],
       "statistic/Routes": [
         "apps/statistic/src/app/remote-entry/entry.routes.ts"
       ],
-      "@org/todo_service": ["shared-libs/src/index.ts"]
+      "@shared_libs/todo_service": [
+        "shared-libs/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
