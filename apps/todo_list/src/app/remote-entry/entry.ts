@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NxWelcome } from './nx-welcome';
-import { ToDoList } from '../../components/todolist';
+import { ToDoList } from '../../components/todolist.component';
 
 @Component({
   imports: [ToDoList],

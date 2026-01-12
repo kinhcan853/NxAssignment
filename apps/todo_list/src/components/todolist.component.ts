@@ -7,8 +7,8 @@ import { ToDoService } from '../services/to-do-service';
 @Component({
   selector: 'app-to-do-list',
   imports: [CommonModule],
-  templateUrl: './todolist.html',
-  styleUrl: './todolist.scss',
+  templateUrl: './todolist.component.html',
+  styleUrl: './todolist.component.scss',
 })
 export class ToDoList {
 

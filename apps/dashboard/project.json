@@ -25,7 +25,8 @@
         ],
         "styles": [
           "apps/dashboard/src/styles.scss",
-          "node_modules/bootstrap/scss/bootstrap.scss"
+          "node_modules/bootstrap/scss/bootstrap.scss",
+          "node_modules/bootstrap-icons/font/bootstrap-icons.scss"
         ],
         "customWebpackConfig": {
           "path": "apps/dashboard/webpack.config.ts"
