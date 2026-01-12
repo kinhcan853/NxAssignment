@@ -1,0 +1,17 @@
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div *ngFor="let toast of toastService.toasts" class="toast show align-items-center text-white border-0 mb-2"
+        [ngClass]="{
+      'bg-success': toast.type === 'success',
+      'bg-info': toast.type === 'info',
+      'bg-warning': toast.type === 'warning',
+      'bg-danger': toast.type === 'danger'
+    }" role="alert">
+        <div class="d-flex">
+            <div class="toast-body">
+                {{ toast.text }}
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" aria-label="Close"
+                (click)="toastService.remove(toast.id)"></button>
+        </div>
+    </div>
+</div>

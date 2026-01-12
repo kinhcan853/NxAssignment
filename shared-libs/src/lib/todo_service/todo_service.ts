@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ToDoItem } from './to-do-item';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { ToDoEvent, ToDoItem } from './to-do-item';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root' // Singleton service
@@ -33,6 +33,9 @@ export class ToDoService {
     }
   ]);
 
+  private todoEventSubject = new Subject<ToDoEvent>();
+  readonly todoEvents$ = this.todoEventSubject.asObservable();
+
   /** Observable for UI binding */
   getTodos(): Observable<ToDoItem[]> {
     return this.todosSubject.asObservable();
@@ -47,26 +50,48 @@ export class ToDoService {
     };
 
     this.todosSubject.next([...currentTodos, newTodo]);
+
+    this.todoEventSubject.next({
+      type: 'add',
+      todo: newTodo
+    });
   }
 
   /** Mark ToDo as Done / Undone */
   toggleTodoStatus(id: number): void {
-    const updatedTodos = this.todosSubject.value.map(todo =>
-      todo.id === id
-        ? { ...todo, isDone: !todo.isDone }
-        : todo
-    );
+    let changedTodo!: ToDoItem;
+
+    const updatedTodos = this.todosSubject.value.map(todo => {
+      if (todo.id === id) {
+        changedTodo = { ...todo, isDone: !todo.isDone };
+        return changedTodo;
+      }
+      return todo;
+    });
 
     this.todosSubject.next(updatedTodos);
+
+    this.todoEventSubject.next({
+      type: changedTodo.isDone ? 'disable' : 'enable',
+      todo: changedTodo
+    });
   }
 
   /** Remove ToDo by id */
   removeTodo(id: number): void {
+    const removedTodo = this.todosSubject.value.find(t => t.id === id);
+    if (!removedTodo) return;
+
     const updatedTodos = this.todosSubject.value.filter(
       todo => todo.id !== id
     );
 
     this.todosSubject.next(updatedTodos);
+
+    this.todoEventSubject.next({
+      type: 'remove',
+      todo: removedTodo
+    });
   }
 
   /** Simple id generator */

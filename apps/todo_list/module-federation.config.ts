@@ -4,6 +4,7 @@ const config: ModuleFederationConfig = {
   name: 'todo_list',
   exposes: {
     './Routes': 'apps/todo_list/src/app/remote-entry/entry.routes.ts',
+    './Notification': 'apps/todo_list/src/components/todo-notification/todo_notification.ts',
   },
 };
 
