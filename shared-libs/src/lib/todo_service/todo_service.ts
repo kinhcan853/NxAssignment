@@ -3,7 +3,7 @@ import { ToDoItem } from './to-do-item';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root' // Singleton service
 })
 export class ToDoService {
   private todosSubject = new BehaviorSubject<ToDoItem[]>([

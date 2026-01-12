@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { loadRemoteModule } from '@nx/angular/mf';
 
 @Component({
   selector: 'app-todo-progress',
@@ -18,10 +17,4 @@ export class TodoProgress implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-  async getRemoteUserService() {
-    const { ToDoService } = await loadRemoteModule('todo_list', './Service');
-
-    const service = new ToDoService();
-    console.log(service.getTodos());
-  }
 }

@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ToDoItem } from '../../services/to-do-item';
+import { ToDoItem } from '../../../../../shared-libs/src/lib/todo_service/to-do-item';
 import { Observable } from 'rxjs/internal/Observable';
-import { ToDoService } from '../../services/to-do-service';
+import { ToDoService } from '../../../../../shared-libs/src/lib/todo_service/todo_service';
 import { Router } from '@angular/router';
 
 @Component({

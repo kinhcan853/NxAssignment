@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc",
+    "outDir": "../dist/out-tsc",
     "module": "commonjs",
     "target": "es2016",
     "types": ["jest", "node"],
@@ -13,5 +13,5 @@
     "src/**/*.test.ts",
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
-, "../../shared-libs/src/lib/todo_service/to-do-service.spec.ts"  ]
+  ]
 }

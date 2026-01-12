@@ -21,7 +21,8 @@
       "about/Routes": ["apps/about/src/app/remote-entry/entry.routes.ts"],
       "statistic/Routes": [
         "apps/statistic/src/app/remote-entry/entry.routes.ts"
-      ]
+      ],
+      "@org/todo_service": ["shared-libs/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToDoService } from '../../services/to-do-service';
+import { ToDoService } from '@org/todo_service';
 import { CommonModule } from '@angular/common';
 
 @Component({
