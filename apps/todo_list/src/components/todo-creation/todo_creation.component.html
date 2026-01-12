@@ -1,0 +1,64 @@
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <form #todoForm="ngForm" (ngSubmit)="addToDo(todoForm)" novalidate>
+        <div class="card shadow-sm">
+          <div class="card-body">
+
+            <!-- Title Field -->
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                name="title"
+                [(ngModel)]="title"
+                required
+                placeholder="Enter todo title"
+                #titleCtrl="ngModel"
+              />
+              <div
+                class="text-danger small mt-1"
+                *ngIf="titleCtrl.invalid && titleCtrl.touched"
+              >
+                Title is required.
+              </div>
+            </div>
+
+            <!-- Description Field -->
+            <div class="mb-3">
+              <textarea
+                class="form-control"
+                rows="3"
+                name="description"
+                [(ngModel)]="description"
+                required
+                placeholder="Enter todo description"
+                #descCtrl="ngModel"
+              ></textarea>
+              <div
+                class="text-danger small mt-1"
+                *ngIf="descCtrl.invalid && descCtrl.touched"
+              >
+                Description is required.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Footer with Add Button -->
+          <div class="card-footer bg-white text-end">
+            <button
+              type="submit"
+              class="btn btn-primary px-4"
+              [disabled]="todoForm.invalid"
+            >
+              Add
+            </button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

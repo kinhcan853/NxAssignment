@@ -79,7 +79,7 @@
       },
       "defaultConfiguration": "development",
       "dependsOn": [
-        "dashboard:serve"
+       
       ]
     },
     "extract-i18n": {

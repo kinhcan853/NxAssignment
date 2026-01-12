@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ToDoItem } from '../services/to-do-item';
+import { ToDoItem } from '../../services/to-do-item';
 import { Observable } from 'rxjs/internal/Observable';
-import { ToDoService } from '../services/to-do-service';
+import { ToDoService } from '../../services/to-do-service';
 
 @Component({
   selector: 'app-to-do-list',
