@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { NxWelcome } from './nx-welcome';
+import { ToDoCreation } from '../../components/todo_creation.component';
 
 @Component({
-  imports: [NxWelcome],
+  imports: [ToDoCreation],
   selector: 'app-todo_creation-entry',
-  template: `<app-nx-welcome></app-nx-welcome>`,
+  template: `<app-to-do-creation></app-to-do-creation>`,
 })
 export class RemoteEntry {}
